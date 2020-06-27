@@ -19,6 +19,10 @@ class Author
     @@post_count += 2 
   end
 
+  def post_count
+    @@post_count
+  end
+  
    def posts
     Post.all.select do |pos| 
       pos.author == self
