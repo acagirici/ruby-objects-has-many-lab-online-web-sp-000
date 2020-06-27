@@ -19,7 +19,7 @@ class Author
     @@post_count += 2 
   end
 
-   def songs
+   def posts
     Post.all.select do |pos| 
       pos.author == self
     end
