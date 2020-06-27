@@ -6,7 +6,6 @@ class Author
 
   def initialize(name)
     @name = name
-    @posts = []
   end
 
   def posts
@@ -15,19 +14,19 @@ class Author
 
   def add_post(post)
     post.author = self
-    @posts << post
     @@post_count += 1
   end
 
   def add_post_by_title(postname)
     post = Post.new(postname)
     post.author = self
-    @posts << post
-    @@post_count += 1
+    @@post_count += 2 
   end
 
-  def self.post_count
-    @@post_count
+   def songs
+    Post.all.select do |pos| 
+      pos.author == self
+    end
   end
 
 end
